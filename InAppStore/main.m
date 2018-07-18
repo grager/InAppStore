@@ -105,11 +105,11 @@ static const SecAsn1Template kSetOfReceiptAttributeTemplate[] = {
 inline static void _CheckBundleIDAndVersion() {
   CFDictionaryRef info = CFBundleGetInfoDictionary(CFBundleGetMainBundle());
   CFStringRef bundleID = CFDictionaryGetValue(info, CFSTR("CFBundleIdentifier"));
-  if (!CFEqual(bundleID, CFSTR(__BUNDLE_ID__))) {
+  if (!CFEqual(bundleID, CFSTR("com.vinotekasoft.Vinoteka"))) {
     ABORT("Failed checking bundle ID");
   }
   CFStringRef bundleVersion = CFDictionaryGetValue(info, CFSTR("CFBundleShortVersionString"));
-  if (!CFEqual(bundleVersion, CFSTR(__BUNDLE_VERSION__))) {
+  if (!CFEqual(bundleVersion, CFSTR("3.6.2"))) {
     ABORT("Failed checking bundle version");
   }
 }
@@ -357,11 +357,11 @@ inline static void _CheckReceiptPayload() {
       
     }
   }
-  if (!bundleID || !CFEqual(bundleID, CFSTR(__BUNDLE_ID__))) {
+  if (!bundleID || !CFEqual(bundleID, CFSTR("com.vinotekasoft.Vinoteka"))) {
     ABORT("Failed validating app receipt: check bundle ID");
   }
 #if !DEBUG
-  if (!bundleVersion || !CFEqual(bundleVersion, CFSTR(__BUNDLE_VERSION__))) {
+  if (!bundleVersion || !CFEqual(bundleVersion, CFSTR("3.6.2"))) {
     ABORT("Failed validating app receipt: check bundle version");
   }
 #endif
