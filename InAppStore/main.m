@@ -37,6 +37,9 @@
 #import <Security/SecRequirement.h>
 #import <IOKit/network/IOEthernetController.h>
 
+#import "appmacros.h"
+
+
 #define ABORT(__MESSAGE__) \
   do { \
     fprintf(stderr, __MESSAGE__ "\n"); \
@@ -105,11 +108,11 @@ static const SecAsn1Template kSetOfReceiptAttributeTemplate[] = {
 inline static void _CheckBundleIDAndVersion() {
   CFDictionaryRef info = CFBundleGetInfoDictionary(CFBundleGetMainBundle());
   CFStringRef bundleID = CFDictionaryGetValue(info, CFSTR("CFBundleIdentifier"));
-  if (!CFEqual(bundleID, CFSTR("com.vinotekasoft.Vinoteka"))) {
+  if (!CFEqual(bundleID, CFSTR(__BUNDLE_ID__))) {
     ABORT("Failed checking bundle ID");
   }
   CFStringRef bundleVersion = CFDictionaryGetValue(info, CFSTR("CFBundleShortVersionString"));
-  if (!CFEqual(bundleVersion, CFSTR("3.6.2"))) {
+  if (!CFEqual(bundleVersion, CFSTR(__BUNDLE_VERSION__))) {
     ABORT("Failed checking bundle version");
   }
 }
@@ -357,11 +360,11 @@ inline static void _CheckReceiptPayload() {
       
     }
   }
-  if (!bundleID || !CFEqual(bundleID, CFSTR("com.vinotekasoft.Vinoteka"))) {
+  if (!bundleID || !CFEqual(bundleID, CFSTR(__BUNDLE_ID__))) {
     ABORT("Failed validating app receipt: check bundle ID");
   }
 #if !DEBUG
-  if (!bundleVersion || !CFEqual(bundleVersion, CFSTR("3.6.2"))) {
+  if (!bundleVersion || !CFEqual(bundleVersion, CFSTR(__BUNDLE_VERSION__))) {
     ABORT("Failed validating app receipt: check bundle version");
   }
 #endif
