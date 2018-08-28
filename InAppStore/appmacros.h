@@ -10,5 +10,5 @@
 #define __BUNDLE_VERSION__  "4.0.0"
 #else
 #define __BUNDLE_ID__       "com.vinotekasoft.Vinoteka"
-#define __BUNDLE_VERSION__  "3.6.2"
+#define __BUNDLE_VERSION__  "3.6.3"
 #endif
