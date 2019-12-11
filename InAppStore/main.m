@@ -37,6 +37,9 @@
 #import <Security/SecRequirement.h>
 #import <IOKit/network/IOEthernetController.h>
 
+#import "appmacros.h"
+
+
 #define ABORT(__MESSAGE__) \
   do { \
     fprintf(stderr, __MESSAGE__ "\n"); \
