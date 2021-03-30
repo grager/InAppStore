@@ -6,4 +6,4 @@
 #import <Foundation/Foundation.h>
 
 #define __BUNDLE_ID__       "com.vinotekasoft.Vinoteka"
-#define __BUNDLE_VERSION__  "4.1.1"
+#define __BUNDLE_VERSION__  "4.1.2"
